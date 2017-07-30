@@ -4,7 +4,7 @@ require('iedriver');
 let webdriver = require('selenium-webdriver');
 let until = webdriver.until;
 var browser = process.env.BROWSER || "CHROME";
-
+var By = webdriver.By;
 var buildWebDriver = function() {
   switch (browser.toLowerCase()){
     case "chrome":
@@ -40,3 +40,4 @@ module.exports = function () {
 };
 module.exports.driver = driverInstance;
 module.exports.until = until;
+module.exports.By = By;
