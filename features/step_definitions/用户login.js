@@ -24,10 +24,37 @@ module.exports = function () {
     });
 
     this.Then(/^我应该登录成功并且显示用户名"([^"]*)"$/, function (arg1) {
-        return driver.findElement(By.css('#sidebar > div:nth-child(1) > div.inner > div > div > span.user_name > a')).getText().then((text)=>{
-            console.log(text, arg1, text===arg1, text !== arg1);
-            return assert.deepEqual(text,arg1);
+        return driver.findElement(By.css('#sidebar > div:nth-child(1) > div.inner > div > div > span.user_name > a')).getText().then((text) => {
+            console.log(text, arg1, text === arg1, text !== arg1);
+            return assert.deepEqual(text, arg1);
         })
     });
+
+
+    this.Then(/^我应该登录失败并且提示"([^"]*)"$/, function (arg1) {
+        return driver.findElement(By.css('#content > div > div.inner > div > strong')).getText().then((text) => {
+            return assert.deepEqual(text, arg1);
+        })
+    });
+
+    this.Then(/^我应该登录"([^"]*)"验证信息"([^"]*)"$/, function (arg1, arg2) {
+        // 成功或失败
+        switch (arg1) {
+            case "成功":
+                return driver.findElement(By.css('#sidebar > div:nth-child(1) > div.inner > div > div > span.user_name > a')).getText().then((text) => {
+                    return assert.deepEqual(text, arg2);
+                })
+                break;
+            case "失败":
+                return driver.findElement(By.css('#content > div > div.inner > div > strong')).getText().then((text) => {
+                    return assert.deepEqual(text, arg2);
+                })
+                break;
+            default:
+                return false;
+                break;
+        }
+    });
+
 
 }

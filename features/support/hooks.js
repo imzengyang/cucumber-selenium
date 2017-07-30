@@ -13,15 +13,15 @@ module.exports = function Hooks() {
   // Before All Features
   this.BeforeFeatures(function (event, callback) {
     
-    // driver.manage().window().maximize();  //firefox maximize() error https://github.com/mozilla/geckodriver/issues/820
-    driver.executeScript(function(){
-      return {
-          width: window.screen.availWidth,
-          height: window.screen.availHeight
-      };
-    }).then(function(result){
-      driver.manage().window().setSize(result.width, result.height);
-    })
+    driver.manage().window().maximize();  //firefox maximize() error https://github.com/mozilla/geckodriver/issues/820
+    // driver.executeScript(function(){
+    //   return {
+    //       width: window.screen.availWidth,
+    //       height: window.screen.availHeight
+    //   };
+    // }).then(function(result){
+    //   driver.manage().window().setSize(result.width, result.height);
+    // })
     callback();
   })
   // Before Feature
@@ -53,7 +53,7 @@ module.exports = function Hooks() {
   });
   // After Scenario
   this.AfterScenario(function (event, callback) {
-
+    driver.manage().deleteAllCookies();
     callback();
   })
   // After Feature
