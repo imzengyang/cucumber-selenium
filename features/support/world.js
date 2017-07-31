@@ -1,5 +1,5 @@
 require('chromedriver');
-require('geckodriver');
+// require('geckodriver');
 require('iedriver');
 let webdriver = require('selenium-webdriver');
 let until = webdriver.until;

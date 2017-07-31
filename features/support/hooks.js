@@ -53,12 +53,12 @@ module.exports = function Hooks() {
   });
   // After Scenario
   this.AfterScenario(function (event, callback) {
-    driver.manage().deleteAllCookies();
+    // driver.manage().deleteAllCookies();
     callback();
   })
   // After Feature
   this.AfterFeature(function (event, callback) {
-
+    driver.manage().deleteAllCookies();
     callback();
   })
   // After All Features
