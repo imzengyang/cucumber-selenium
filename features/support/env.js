@@ -1,7 +1,7 @@
 // setDefaultTimeout
 module.exports = function configure () {
     
-    this.setDefaultTimeout(60 * 1000);
+    this.setDefaultTimeout(600 * 1000);
 };
 
 

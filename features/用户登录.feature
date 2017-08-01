@@ -23,6 +23,7 @@ Scenario: 正确用户名和密码的情况
 Scenario Outline: 用户登录
 不同情况情况的用户登录
  Given 打开网站首页
+ When I click the btn "hello" and click 3 times
   When 点击登录按钮
   Then 用户名输入"<用户名>"
   And 密码输入"<密码>"

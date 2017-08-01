@@ -46,6 +46,7 @@ module.exports = function Hooks() {
   });
 
   this.After(function (scenario) {
+    driver.manage().deleteAllCookies();
    return driver.takeScreenshot().then(function (screenShot) {
       return scenario.attach(new Buffer(screenShot, 'base64'), 'image/png');
     });
@@ -53,7 +54,7 @@ module.exports = function Hooks() {
   });
   // After Scenario
   this.AfterScenario(function (event, callback) {
-    // driver.manage().deleteAllCookies();
+    // 
     callback();
   })
   // After Feature
