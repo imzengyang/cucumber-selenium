@@ -66,10 +66,10 @@ module.exports = function () {
 
   this.Then(/^分别输入用户名和密码$/, function (table) {
     // console.log(table)
-    console.log("rows:",table.rows())
-    console.log("rowsHash",table.rowsHash())
-    console.log("raw",table.raw())
-    console.log('hashes',table.hashes())
+    console.log("rows:", table.rows())
+    console.log("rowsHash", table.rowsHash())
+    console.log("raw", table.raw())
+    console.log('hashes', table.hashes())
 
     let logininfo = table.rowsHash();
     // loginingfo = { username: 'imzack', pass: '123456' }
@@ -77,4 +77,13 @@ module.exports = function () {
     return driver.findElement(By.id("pass")).sendKeys(logininfo.pass);
   });
 
+  this.Then(/^标题输入$/, function (table) {
+    console.log(table.rowsHash());
+  });
+
+  this.Then(/^等待(\d+)秒点击登录$/, function (arg1) {
+    return driver.sleep(arg1 * 1000).then(()=>{
+      driver.findElement(By.css('.span-primary')).click();
+    })
+  });
 }
