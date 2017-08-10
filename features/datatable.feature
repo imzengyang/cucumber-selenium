@@ -21,8 +21,3 @@ Feature: 用户发帖，回复场景
       # hello world.
       ## hi everyone.
       """
-
-  Scenario: <Scenario Name>
-    Given dsdadfdafafasdf
-    When ...
-    Then ...

@@ -5,7 +5,11 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cucumber" : "cucumber.js.cmd -t @loginout"
+    "cucumber": "cucumber.js.cmd -t @loginout",
+    "cucumber-background": "cucumber.js.cmd  features/Background.feature",
+    "cucumber-scenario": "cucumber.js.cmd features/用户登录.feature:14",
+    "run-json": "cucumber.js.cmd features/用户登录.feature:14 -f json",
+    "save-file-json": "cucumber.js.cmd features/用户登录.feature:14 -f json:reporter/report.json"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +19,7 @@
     "cucumber": "1.3.3",
     "geckodriver": "^1.6.1",
     "iedriver": "^3.3.1-rc.1",
+    "multiple-cucumber-html-reporter": "^0.2.1",
     "selenium-webdriver": "^3.3.0"
   }
 }

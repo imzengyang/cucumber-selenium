@@ -7,7 +7,8 @@
  * Finally, set Zoom level to 100% by right clicking on the gear located at the top right corner and enabling the status-bar. Default zoom level is now displayed at the lower right.
  */
 'use strict';
-
+const report = require('multiple-cucumber-html-reporter');
+var path = require('path');
 module.exports = function Hooks() {
   var driver = require('../support/world').driver;
   // Before All Features
@@ -63,8 +64,14 @@ module.exports = function Hooks() {
     callback();
   })
   // After All Features
-  this.AfterFeatures(function (event) {
-    return driver.quit();
+  this.AfterFeatures(function (event,callback) {
+    driver.quit();
+    let reportpath = path.join(__dirname, '../../reporter/')
+    report.generate({
+      jsonDir: reportpath,
+      reportPath: reportpath
+    });
+    callback();
   })
 
 };

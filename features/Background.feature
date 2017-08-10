@@ -21,11 +21,3 @@ Feature: 用户发帖，回复场景
     Given 打开帖子"hello world, 你好，世界！"
     When 添加回复内容"thank you，你的分享太棒了。"
     Then 点击回复按钮
-
-  Scenario Outline: <Scenario Name>
-    Given 删除
-    When shanchu test "s"  4 times <anc>
-    Then ds
-    Examples: 
-      | param1 | param2 | param3 |
-      | value1 | value2 | value3 |
