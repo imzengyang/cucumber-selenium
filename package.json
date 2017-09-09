@@ -9,7 +9,7 @@
     "cucumber-background": "cucumber.js.cmd  features/Background.feature",
     "cucumber-scenario": "cucumber.js.cmd features/用户登录.feature:14",
     "run-json": "cucumber.js.cmd features/用户登录.feature:14 -f json",
-    "save-file-json": "cucumber.js.cmd features/用户登录.feature:14 -f json:reporter/report.json"
+    "save-file-json": "cucumber.js features/用户登录.feature:14 -f json:reporter/report.json"
   },
   "author": "",
   "license": "ISC",

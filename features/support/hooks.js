@@ -64,14 +64,15 @@ module.exports = function Hooks() {
     callback();
   })
   // After All Features
-  this.AfterFeatures(function (event,callback) {
-    driver.quit();
+  this.AfterFeatures(function (event) {
+    
     let reportpath = path.join(__dirname, '../../reporter/')
     report.generate({
       jsonDir: reportpath,
       reportPath: reportpath
     });
-    callback();
+
+    return driver.quit();
   })
 
 };

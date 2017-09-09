@@ -5,8 +5,6 @@ var until = require('../support/world').until;
 
 module.exports = function () {
 
-
-
     this.Then(/^内容输入使用docstring$/, function (string) {
         driver.actions().mouseMove(driver.findElement(By.css('div.CodeMirror-cursor'))).click().perform();
         let editor = driver.wait(until.elementLocated(By.css('#create_topic_form > fieldset > div > div > div.CodeMirror.cm-s-paper > div.CodeMirror-scroll > div.CodeMirror-sizer > div > div > div > div:nth-child(4)')), 3000);

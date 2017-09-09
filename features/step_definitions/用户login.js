@@ -4,7 +4,7 @@ var assert = require('assert');
 module.exports = function () {
 
     this.Given(/^打开网站首页$/,{timeout: 60 * 1000}, function () {
-        return driver.get("http://192.168.219.129:3000");
+        return driver.get("http://localhost:3000");
     });
 
     this.When(/^点击登录按钮$/, function () {
